@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Result figures and reproducibility resources for CANNs: A Toolkit for Continuous Attractor Research.">
+  <meta name="theme-color" content="#8c0000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CANNs — Results Gallery">
+  <meta property="og:description" content="Simulation, benchmark, and neural-recording results for CANNs: A Toolkit for Continuous Attractor Research.">
+  <meta property="og:url" content="https://airs702.github.io/canns-results/">
+  <link rel="canonical" href="https://airs702.github.io/canns-results/">
+  <title>CANNs — Results Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+
+  <header class="site-header">
+    <div class="header-rule"></div>
+    <div class="wrap identity">
+      <a class="pku-mark" href="https://www.pku.edu.cn/" aria-label="Peking University">
+        <img src="assets/brand/pku_seal.png" alt="" width="72" height="72">
+        <span>Peking University</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#models">Models</a>
+        <a href="#simulations">Simulations</a>
+        <a href="#recordings">Recordings</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Companion results gallery · CANNs</p>
+          <h1>A toolkit for continuous attractor research</h1>
+          <p class="subtitle">From mechanistic models to topological tests of neural population dynamics</p>
+          <p class="authors">Sichao He<sup>†</sup>, Aiersi Tuerhong<sup>†</sup>, Shangjun She, Tianhao Chu, Yuling Wu, Junfeng Zuo, and Si Wu<sup>*</sup></p>
+          <p class="affiliation">Peking University · Chongqing University · <sup>†</sup>Equal contribution · <sup>*</sup>Correspondence</p>
+          <div class="link-row" aria-label="Project links">
+            <a class="primary-link" href="https://arxiv.org/abs/2606.27783">Read the paper</a>
+            <a href="https://github.com/Routhleck/canns">Source code</a>
+            <a href="#results">Browse results</a>
+          </div>
+        </div>
+        <aside class="main-point" aria-label="Main result">
+          <p class="label">Main point</p>
+          <p><strong>CANNs links mechanism to measurement.</strong> Standardized continuous-attractor models, Rust-accelerated simulation, and topology-aware analysis connect predicted ring and torus geometry to real neural recordings in one reproducible workflow.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="summary-band" aria-label="Study summary">
+      <div class="wrap summary-grid">
+        <div>
+          <span class="summary-number">≈700×</span>
+          <span class="summary-label">navigation-kernel acceleration at 10<sup>6</sup> steps</span>
+        </div>
+        <div>
+          <span class="summary-number">54</span>
+          <span class="summary-label">datasets in the persistent-homology benchmark</span>
+        </div>
+        <div>
+          <span class="summary-number">23.8°</span>
+          <span class="summary-label">mean absolute circular error in the MEC HD example</span>
+        </div>
+        <div>
+          <span class="summary-number">20/20</span>
+          <span class="summary-label">selected modules with negative score correlation</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap page-layout" id="results">
+      <aside class="contents" aria-label="Results contents">
+        <p class="contents-title">On this page</p>
+        <ol>
+          <li><a href="#models">Mechanism and geometry</a></li>
+          <li><a href="#simulations">Canonical simulations</a></li>
+          <li><a href="#performance">Measured performance</a></li>
+          <li><a href="#recordings">Neural recordings</a></li>
+          <li><a href="#resources">Reproducibility</a></li>
+        </ol>
+        <p class="contents-note">Select any figure to inspect the full-resolution result.</p>
+      </aside>
+
+      <div class="results-column">
+        <section class="result-section" id="models">
+          <div class="section-heading">
+            <p class="section-index">01 · Mechanism → geometry</p>
+            <h2>One backbone spans ring, torus, and grid codes</h2>
+            <p>Translation-invariant recurrence preserves a localized activity bump while one or two neutral phase directions encode a continuous variable. Each row below links a local network pattern to its population-level geometry.</p>
+          </div>
+
+          <div class="paired-results">
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/ring_connectivity.png" data-caption="Periodic recurrent connectivity supports a localized activity bump on a one-dimensional ring.">
+                <img src="assets/figures/ring_connectivity.png" alt="Periodic recurrent connectivity matrix for the ring network" width="3600" height="3600" loading="lazy">
+              </button>
+              <figcaption><strong>Ring kernel.</strong> Periodic recurrent connectivity supports one neutral phase coordinate.</figcaption>
+            </figure>
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/ring_manifold.png" data-caption="The moving bump traces an S¹ state manifold with one persistent H₁ generator.">
+                <img src="assets/figures/ring_manifold.png" alt="Circular S1 state manifold traced by ring-network activity" width="801" height="801" loading="lazy">
+              </button>
+              <figcaption><strong>S¹ state.</strong> The moving bump traces a ring with ideal signature (β<sub>0</sub>, β<sub>1</sub>, β<sub>2</sub>) = (1, 1, 0).</figcaption>
+            </figure>
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/torus_bump.png" data-caption="A localized population bump moves across a two-dimensional periodic neural sheet.">
+                <img src="assets/figures/torus_bump.png" alt="Localized activity bump on a two-dimensional periodic neural sheet" width="871" height="871" loading="lazy">
+              </button>
+              <figcaption><strong>Two-dimensional CANN.</strong> A localized bump carries two periodic coordinates.</figcaption>
+            </figure>
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/torus_manifold.png" data-caption="Two periodic bump coordinates generate a toroidal population manifold.">
+                <img src="assets/figures/torus_manifold.png" alt="Toroidal T2 population manifold" width="801" height="801" loading="lazy">
+              </button>
+              <figcaption><strong>T² state.</strong> Two H<sub>1</sub> generators together with compatible H<sub>2</sub> support distinguish a torus from two independent rings.</figcaption>
+            </figure>
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/grid_tuning.png" data-caption="Repeated hexagonal fields are periodic images of compact phase preferences.">
+                <img src="assets/figures/grid_tuning.png" alt="Periodic hexagonal grid-cell tuning pattern" width="871" height="871" loading="lazy">
+              </button>
+              <figcaption><strong>Grid tuning.</strong> Repeated hexagonal fields appear in physical space.</figcaption>
+            </figure>
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/grid_manifold.png" data-caption="Grid-cell population activity forms a compact toroidal manifold.">
+                <img src="assets/figures/grid_manifold.png" alt="Toroidal manifold recovered from a grid-cell population" width="579" height="508" loading="lazy">
+              </button>
+              <figcaption><strong>Grid torus.</strong> The repeated fields are periodic images of a compact toroidal phase preference.</figcaption>
+            </figure>
+          </div>
+
+          <div class="method-note">
+            <strong>Analysis rule.</strong> Maximum homology dimension 1 tests a ring; dimension 2 tests the toroidal cavity. Shuffle nulls guard against finite-sampling artefacts. A tuning map alone does not establish topology.
+          </div>
+        </section>
+
+        <section class="result-section" id="simulations">
+          <div class="section-heading">
+            <p class="section-index">02 · Reproducibility baselines</p>
+            <h2>Canonical computations share one backend</h2>
+            <p>Head-direction, grid, and place networks use the same velocity-modulated theta drive while respecting their task-specific geometry.</p>
+          </div>
+
+          <div class="wide-result">
+            <div class="result-text">
+              <h3>Theta phase organizes internal trajectories</h3>
+              <p>Within each cycle, activity sweeps around a ring or across a twisted torus. In the place-cell model, geodesic coupling follows accessible T-maze corridors instead of crossing walls.</p>
+              <ul>
+                <li>100 ms cycles repeatedly advance and reset the active sequence.</li>
+                <li>Velocity modulation creates task-specific sweeps with a shared implementation.</li>
+                <li>At the T-maze junction, slowing and turning reorganize the sequence.</li>
+              </ul>
+            </div>
+            <div class="duo-results">
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/theta_hd.png" data-caption="Theta-modulated activity sweeps around the head-direction ring.">
+                  <img src="assets/figures/theta_hd.png" alt="Head-direction activity organized by theta phase" width="2409" height="1197" loading="lazy">
+                </button>
+                <figcaption><strong>Head direction.</strong> Theta-modulated activity sweeps around the ring.</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/theta_grid.png" data-caption="Theta-modulated grid-cell activity advances across a twisted torus.">
+                  <img src="assets/figures/theta_grid.png" alt="Grid-cell activity sweeping across a twisted torus" width="1820" height="946" loading="lazy">
+                </button>
+                <figcaption><strong>Grid network.</strong> Population activity advances across a twisted torus.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <figure class="result-figure full-width">
+            <button class="image-button" type="button" data-full="assets/figures/theta_place.png" data-caption="Place-cell population raster during a fixed-seed three-second T-maze traversal.">
+              <img src="assets/figures/theta_place.png" alt="Place-cell population activity raster during a T-maze traversal" width="2792" height="1769" loading="lazy">
+            </button>
+            <figcaption><strong>Place-cell population raster.</strong> Rows are neurons, time runs left to right, and color denotes activity during a fixed-seed 3 s T-maze traversal. Fine diagonal ridges report repeated within-cycle advancement and reset.</figcaption>
+          </figure>
+
+          <div class="subsection">
+            <h3>Hierarchical path integration yields multiscale codes</h3>
+            <p>Five grid modules drive a shared 30 × 30 place-cell readout over a 5 × 5 m arena, producing oriented bands, module-specific grid scales, and localized fields from one velocity input.</p>
+            <div class="triptych-results">
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/hier_trajectory.png" data-caption="Navigation trajectory used for hierarchical path integration.">
+                  <img src="assets/figures/hier_trajectory.png" alt="Navigation trajectory for hierarchical path integration" width="1800" height="1800" loading="lazy">
+                </button>
+                <figcaption>Navigation trajectory</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/hier_grid.png" data-caption="Grid-like field produced by a hierarchical path-integration module.">
+                  <img src="assets/figures/hier_grid.png" alt="Grid-like spatial field from hierarchical path integration" width="3540" height="3540" loading="lazy">
+                </button>
+                <figcaption>Grid-cell field</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/hier_band.png" data-caption="Oriented band field produced by a hierarchical path-integration module.">
+                  <img src="assets/figures/hier_band.png" alt="Oriented band-cell spatial field" width="3540" height="3540" loading="lazy">
+                </button>
+                <figcaption>Band-cell field</figcaption>
+              </figure>
+            </div>
+            <p class="evidence-boundary"><strong>Evidence boundary:</strong> these are fixed-seed, toolkit-author reproduction baselines within one shared backend—not independent confirmations of the original studies.</p>
+          </div>
+        </section>
+
+        <section class="result-section" id="performance">
+          <div class="section-heading">
+            <p class="section-index">03 · Measured performance</p>
+            <h2>Rust acceleration makes long experiments feasible</h2>
+            <p>Performance-critical kernels are exposed through Rust/PyO3 while model definitions and experimental workflows remain in Python.</p>
+          </div>
+
+          <div class="benchmark">
+            <div class="benchmark-number">≈700×</div>
+            <div>
+              <h3>Navigation kernel at 10<sup>6</sup> steps</h3>
+              <p><strong>0.27 s</strong> with the Rust implementation versus <strong>192.8 s</strong> for the pure-Python reference under the reported single-thread protocol.</p>
+            </div>
+          </div>
+          <figure class="result-figure full-width figure-contained">
+            <button class="image-button" type="button" data-full="assets/figures/ripser_speedup.png" data-caption="Distribution of Ripser acceleration across 54 benchmark datasets.">
+              <img src="assets/figures/ripser_speedup.png" alt="Ripser speedup distribution across 54 datasets" width="1800" height="1200" loading="lazy">
+            </button>
+            <figcaption><strong>Persistent homology benchmark.</strong> Geometric-mean speedup 1.13× and peak speedup 1.82×. Matched H<sub>0</sub>/H<sub>1</sub> results were identical across 54 datasets at 0.02 bottleneck tolerance.</figcaption>
+          </figure>
+          <p class="protocol"><strong>Reported protocol:</strong> single-thread CPU on Apple M2 Pro (16 GB); 54 datasets across nine categories, 200–10,000 points, and dimensions 2–6. See the paper and repository for the complete benchmark definitions.</p>
+        </section>
+
+        <section class="result-section" id="recordings">
+          <div class="section-heading">
+            <p class="section-index">04 · Prediction → test</p>
+            <h2>Topology-aware analysis of neural recordings</h2>
+            <p>The Attractor Structure Analyzer (ASA) turns population activity into an auditable workflow: spikes → smoothed rates → PCA point cloud → persistent homology and circular coordinates.</p>
+          </div>
+
+          <figure class="result-figure full-width">
+            <button class="image-button" type="button" data-full="assets/figures/asa_spiketrain.png" data-caption="ASA population representation from spikes through smoothed rates to a topology-ready point cloud.">
+              <img src="assets/figures/asa_spiketrain.png" alt="ASA population-vector processing pipeline" width="3264" height="1312" loading="lazy">
+            </button>
+            <figcaption><strong>Population representation.</strong> Shuffle controls preserve single-neuron statistics while disrupting coactivation; circular coordinates map recovered topology back to behavior or physical space.</figcaption>
+          </figure>
+
+          <div class="recording-result">
+            <div class="result-text">
+              <p class="result-number">23.8°</p>
+              <h3>A real MEC population yields a decodable ring</h3>
+              <p>Mean absolute circular decoding error for MEC session 26648_1 after global sign and phase alignment. One dominant H<sub>1</sub> interval supports a ring-like state space, and the decoded coordinate follows the behavioral head-direction trace.</p>
+            </div>
+            <div class="recording-pair">
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/hd_decode.png" data-caption="Decoded circular coordinate compared with behavioral head direction in MEC session 26648_1.">
+                  <img src="assets/figures/hd_decode.png" alt="Decoded and true head-direction traces for an MEC recording" width="2520" height="1044" loading="lazy">
+                </button>
+                <figcaption>Decoded circular coordinate and behavioral head direction.</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/hd_barcode.png" data-caption="Persistent-homology barcode for the MEC head-direction population; one dominant H1 interval supports a ring-like state space.">
+                  <img src="assets/figures/hd_barcode.png" alt="Persistent-homology barcode for the MEC head-direction population" width="1781" height="1060" loading="lazy">
+                </button>
+                <figcaption>One dominant H<sub>1</sub> interval supports the ring interpretation.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>Selected MEC modules recover toroidal signatures</h3>
+            <p>A broad screen covers 66 modules. The two panels below are representatives from a selected positive cohort of 20 modules; they should not be interpreted as a prevalence estimate.</p>
+            <div class="stacked-results">
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/mec_cohomap_pair.png" data-caption="Circular cohomology maps for two selected MEC modules.">
+                  <img src="assets/figures/mec_cohomap_pair.png" alt="Circular cohomology maps for two selected MEC modules" width="1040" height="520" loading="lazy">
+                </button>
+                <figcaption>Circular cohomology maps for two representative modules.</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <button class="image-button" type="button" data-full="assets/figures/mec_barcode_pair.png" data-caption="Persistent-homology barcodes for two selected MEC modules.">
+                  <img src="assets/figures/mec_barcode_pair.png" alt="Persistent-homology barcodes for two selected MEC modules" width="1120" height="590" loading="lazy">
+                </button>
+                <figcaption>Persistent barcodes under strict controls and 100 circular-shift nulls per module.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="recording-result threshold-result">
+            <figure class="result-figure">
+              <button class="image-button" type="button" data-full="assets/figures/auto_threshold.png" data-caption="Two-stage threshold search for topology-aware grid-cell selection.">
+                <img src="assets/figures/auto_threshold.png" alt="Two-stage grid-cell threshold search" width="1572" height="1280" loading="lazy">
+              </button>
+              <figcaption>Coarse-to-fine threshold search monitors H<sub>1</sub> prominence and GridScore–CohoScore coupling.</figcaption>
+            </figure>
+            <div class="result-text">
+              <p class="result-number">20/20</p>
+              <h3>Topology-aware cell selection links two scales</h3>
+              <p>Every selected module showed negative GridScore–CohoScore correlation (mean −0.508; median −0.546; one-sided Fisher-z p ≈ 1.09 × 10<sup>−8</sup>).</p>
+              <p class="limitations"><strong>Current limits:</strong> H<sub>2</sub> is expensive above approximately 5,000 points; band-cell classification and several preprocessing choices still require scientific judgment.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="result-section resources" id="resources">
+          <div class="section-heading">
+            <p class="section-index">05 · Reproducibility</p>
+            <h2>Code, paper, and result files</h2>
+            <p>This page is a visual index rather than a substitute for the manuscript. Methods, data provenance, parameter definitions, statistical controls, and complete citations are documented in the paper and repository.</p>
+          </div>
+          <div class="resource-links">
+            <a href="https://github.com/Routhleck/canns">
+              <span class="resource-type">Repository</span>
+              <strong>Routhleck/canns</strong>
+              <span>Source code, documentation, tests, and runnable examples →</span>
+            </a>
+            <a href="https://arxiv.org/abs/2606.27783">
+              <span class="resource-type">Preprint</span>
+              <strong>arXiv:2606.27783</strong>
+              <span>Full manuscript, methods, analyses, and references →</span>
+            </a>
+            <a href="https://github.com/Airs702/canns-results">
+              <span class="resource-type">Gallery source</span>
+              <strong>Airs702/canns-results</strong>
+              <span>Static page source and the displayed figure assets →</span>
+            </a>
+          </div>
+          <figure class="architecture">
+            <button class="image-button" type="button" data-full="assets/figures/architecture.png" data-caption="CANNs five-layer architecture: models and tasks share BrainPy/JAX foundations, with Rust FFI for selected kernels.">
+              <img src="assets/figures/architecture.png" alt="Five-layer architecture of the CANNs toolkit" width="2869" height="1273" loading="lazy">
+            </button>
+            <figcaption><strong>Five-layer architecture.</strong> Models and tasks share BrainPy/JAX foundations; Rust FFI accelerates selected performance-critical kernels for long simulations.</figcaption>
+          </figure>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <strong>CANNs: A Toolkit for Continuous Attractor Research</strong>
+        <p>Companion results gallery maintained with the public research code.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://arxiv.org/abs/2606.27783">Paper</a>
+        <a href="https://github.com/Routhleck/canns">GitHub</a>
+        <a href="https://github.com/Airs702/canns-results">Gallery source</a>
+        <a href="#overview">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Full-resolution result figure">
+    <button class="lightbox-close" type="button" aria-label="Close figure">×</button>
+    <div class="lightbox-stage">
+      <img src="" alt="">
+    </div>
+    <div class="lightbox-footer">
+      <p></p>
+      <a href="" target="_blank" rel="noopener">Open original image</a>
+    </div>
+  </dialog>
+</body>
+</html>

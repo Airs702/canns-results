@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://airs702.github.io/canns-results/
